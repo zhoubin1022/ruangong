@@ -16,4 +16,6 @@ def sc_count(word):
     print("case num: ", end=' ')
     for i in case_count:
         print(i, end=' ')
+    print()
+    return all_word
 

@@ -6,6 +6,7 @@
 
 # 用来标记之前有没有/*，即接下来是不是注释部分，1表示是注释，0表示不是注释
 import all_key_count
+import if_else_count
 import switch_case_count
 
 flag = 0
@@ -55,9 +56,7 @@ if __name__ == "__main__":
         all_key_count.all_key(word)
     elif completeLevel == 2:
         switch_case_count.sc_count(word)
-    elif completeLevel == 3:
-        print(3)
-    elif completeLevel == 4:
-        print(4)
+    else:
+        if_else_count.elif_count(word, completeLevel)
     '''for i in word:
         print(i)'''
