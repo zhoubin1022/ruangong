@@ -5,6 +5,8 @@
 
 
 # 用来标记之前有没有/*，即接下来是不是注释部分，1表示是注释，0表示不是注释
+import all_key_count
+
 flag = 0
 
 
@@ -38,6 +40,7 @@ if __name__ == "__main__":
     path = input("输入文件路径：")
 
     completeLevel = int(input("输入完成等级："))
+    # 判断输入的等级是否不在范围内
     while completeLevel <= 0 or completeLevel > 4:
         completeLevel = int(input("输入错误，请再次输入完成等级："))
     word = []
@@ -48,7 +51,7 @@ if __name__ == "__main__":
             if list1:
                 word.append(list1)
     if completeLevel == 1:
-        print(1)
+        all_key_count.all_key(word)
     elif completeLevel == 2:
         print(2)
     elif completeLevel == 3:
