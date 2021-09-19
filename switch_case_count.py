@@ -5,6 +5,7 @@ def sc_count(word):
     switch_count = 0
     case_count = []
     all_word = all_key_count.all_key(word)
+
     for words in all_word:
         for x in words:
             if x == 'switch':

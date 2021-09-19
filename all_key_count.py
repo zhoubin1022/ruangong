@@ -6,7 +6,7 @@ def all_key(word):
     count = 0
     all_word = []
     for line in word:
-        words = re.split(r'[^a-zA-Z]', line)
+        words = re.split(r'[^a-zA-Z0-9_{}]', line)
         words = [item for item in filter(lambda t:t != '', words)]
         if not words:
             continue
@@ -17,7 +17,7 @@ def all_key(word):
                     if key == x:
                         count += 1
                         break
-    # print(all_word)
+    print(all_word)
     print("total num: ", count)
     return all_word
 

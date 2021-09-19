@@ -5,6 +5,8 @@
 
 
 # 用来标记之前有没有/*，即接下来是不是注释部分，1表示是注释，0表示不是注释
+import re
+
 import all_key_count
 import if_else_count
 import switch_case_count
@@ -12,7 +14,13 @@ import switch_case_count
 flag = 0
 
 
-def judge(word_list):   # 删去每一行注释的函数
+# 遇到{}在前后添加空格
+def addBlank(word_list):
+    return word_list.replace('{', " { ").replace('}', " } ")
+
+
+def judge(word_list):  # 删去每一行注释的函数，
+    word_list = addBlank(word_list)
     global flag
     len_list = len(word_list)
     if flag == 0:  # 这部分不是注释内部
