@@ -3,6 +3,8 @@ import keyWord
 
 
 def sc_count(word):
+    all_word = all_key_count.all_key(word)
+    new_word = keyWord.saveKey(all_word, ['switch', 'case', '{', '}'])
     # 最后存储的结果
     switch_count = 0
     case_count = []
@@ -11,8 +13,6 @@ def sc_count(word):
     switch_pos = []  # 堆栈执行过程中switch在堆栈中的位置
     switch_left = []  # switch结构中左括号的数量
     out_left = 0  # switch外左括号数量
-    all_word = all_key_count.all_key(word)
-    new_word = keyWord.saveKey(all_word, ['switch', 'case', '{', '}'])
     # switch = 1, case = 2, { = 3, } = 4.
     '''for line in new_word:
         print(line)'''
@@ -54,4 +54,3 @@ def sc_count(word):
         print(i, end=' ')
     print()
     return all_word
-

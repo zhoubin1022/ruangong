@@ -5,7 +5,7 @@
 
 
 # 用来标记之前有没有/*，即接下来是不是注释部分，1表示是注释，0表示不是注释
-import re
+
 
 import all_key_count
 import if_else_count

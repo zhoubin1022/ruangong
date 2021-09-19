@@ -20,4 +20,3 @@ def all_key(word):
     # print(all_word)
     print("total num: ", count)
     return all_word
-
