@@ -1,11 +1,10 @@
 # 在这个文件中，我将会执行读入文件，并根据输入调用对应的函数的操作
 # 读入文件路径和完成等级
-# 1.消去注释
+# 程序入口
 # from keyWord import keyWord
 
 
 # 用来标记之前有没有/*，即接下来是不是注释部分，1表示是注释，0表示不是注释
-
 
 import all_key_count
 import if_else_count
@@ -54,17 +53,19 @@ if __name__ == "__main__":
     while completeLevel <= 0 or completeLevel > 4:
         completeLevel = int(input("输入错误，请再次输入完成等级："))
     word = []
-    with open(path, 'r', encoding="utf-8") as file:
-        for list1 in file:
-            list1 = list1.replace('\n', '').strip()
-            list1 = judge(list1)
-            if list1:
-                word.append(list1)
-    if completeLevel == 1:
-        all_key_count.all_key(word)
-    elif completeLevel == 2:
-        switch_case_count.sc_count(word)
-    else:
-        if_else_count.elif_count(word, completeLevel)
-    '''for i in word:
-        print(i)'''
+    try:  # 打开文件并读文件
+        with open(r''+path, 'r', encoding="utf-8") as file:
+            for list1 in file:
+                list1 = list1.replace('\n', '').strip()
+                list1 = judge(list1)
+                if list1:
+                    word.append(list1)
+    except IOError:
+        print("Error: 没有找到文件或读取文件失败")
+    else:  # 根据等级进行操作
+        if completeLevel == 1:
+            all_key_count.all_key(word)
+        elif completeLevel == 2:
+            switch_case_count.sc_count(word)
+        else:
+            if_else_count.elif_count(word, completeLevel)

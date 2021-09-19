@@ -25,13 +25,13 @@ def sc_count(word):
                     key_stack.append(3)  # 加入堆栈
                     switch_left[-1] += 1  # 对应左括号加1
             elif x == 'switch':
-                key_stack.append(1)
-                switch_pos.append(len(key_stack))
-                switch_left.append(0)
-                case_count.append(0)
+                key_stack.append(1)  # switch入栈
+                switch_pos.append(len(key_stack))  # switch位置入栈
+                switch_left.append(0)  # 这个switch对应的左括号列表可以开始添加元素了
+                case_count.append(0)  # switch对应的case列表可以开始添加了
                 switch_count += 1
             elif x == 'case':
-                case_count[switch_count-1] += 1
+                case_count[switch_count-1] += 1  # case + 1
             elif x == '}':
                 if not switch_pos:  # 属于外括号
                     out_left -= 1

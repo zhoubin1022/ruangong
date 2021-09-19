@@ -6,9 +6,9 @@ def all_key(word):
     count = 0
     all_word = []
     for line in word:
-        words = re.split(r'[^a-zA-Z0-9_{}]', line)
-        words = [item for item in filter(lambda t:t != '', words)]
-        if not words:
+        words = re.split(r'[^a-zA-Z0-9_{}]', line)  # 使用正则表达式分割字符串
+        words = [item for item in filter(lambda t:t != '', words)]  # 删去空字符串
+        if not words:  # 计数
             continue
         all_word.append(words)
         for x in words:

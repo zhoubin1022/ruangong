@@ -25,10 +25,10 @@ def elif_count(word, flag):
         i = 0
         while i < len_line:
             if line[i] == 'if':
-                key_stack.append(1)
+                key_stack.append(1)  # if入栈
             elif line[i] == '{':
-                left_pos.append(len(key_stack))
-                key_stack.append(4)
+                left_pos.append(len(key_stack))  # 保存{在栈中的位置
+                key_stack.append(4)  # 入栈
             elif line[i] == 'else':
                 if i < len_line - 1 and line[i + 1] == 'if':  # else-if 结构
                     key_stack.append(3)
@@ -36,15 +36,15 @@ def elif_count(word, flag):
                 else:
                     key_stack.append(2)
             elif line[i] == '}':
-                temp = key_stack[left_pos[-1]+1:]
-                key_stack = key_stack[:left_pos[-1]]
+                temp = key_stack[left_pos[-1]+1:]  # 将大括号之间的部分切片
+                key_stack = key_stack[:left_pos[-1]]  # 剩下的部分
                 left_pos.pop()
                 for t in range(len(temp)):
                     temp[t] = str(temp[t])
-                str_tmp = ''.join(temp)
+                str_tmp = ''.join(temp)  # 转为字符串
                 # print(temp, key_stack)
-                pat_1 = re.compile(r'12')
-                pat_2 = re.compile(r'13+2')
+                pat_1 = re.compile(r'12')  # 12结构查找if else结构
+                pat_2 = re.compile(r'13+2')  # 根据13+2结构查找 if else-if else结构
                 if_else_num += len(pat_1.findall(str_tmp))
                 elif_num += len(pat_2.findall(str_tmp))
             i += 1
