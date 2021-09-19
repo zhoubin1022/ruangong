@@ -17,7 +17,7 @@ def all_key(word):
                     if key == x:
                         count += 1
                         break
-    print(all_word)
+    # print(all_word)
     print("total num: ", count)
     return all_word
 
