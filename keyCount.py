@@ -45,6 +45,26 @@ def judge(word_list):  # 删去每一行注释的函数，
         return
 
 
+def readFile(filepath, level):
+    word = []
+    try:  # 打开文件并读文件
+        with open(r'' + filepath, 'r', encoding="utf-8") as file:
+            for list1 in file:
+                list1 = list1.replace('\n', '').strip()
+                list1 = judge(list1)
+                if list1:
+                    word.append(list1)
+    except IOError:
+        print("Error: 没有找到文件或读取文件失败:", path)
+    else:  # 根据等级进行操作
+        if level == 1:
+            all_key_count.all_key(word)
+        elif level == 2:
+            switch_case_count.sc_count(word)
+        else:
+            if_else_count.elif_count(word, level)
+
+
 if __name__ == "__main__":
     path = input("输入文件路径：")
 
@@ -52,7 +72,8 @@ if __name__ == "__main__":
     # 判断输入的等级是否不在范围内
     while completeLevel <= 0 or completeLevel > 4:
         completeLevel = int(input("输入错误，请再次输入完成等级："))
-    word = []
+    readFile(path, completeLevel)
+    '''word = []
     try:  # 打开文件并读文件
         with open(r''+path, 'r', encoding="utf-8") as file:
             for list1 in file:
@@ -68,4 +89,4 @@ if __name__ == "__main__":
         elif completeLevel == 2:
             switch_case_count.sc_count(word)
         else:
-            if_else_count.elif_count(word, completeLevel)
+            if_else_count.elif_count(word, completeLevel)'''

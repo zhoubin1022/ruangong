@@ -49,7 +49,7 @@ def sc_count(word):
             elif x == 'case':
                 case_count[switch_count-1] += 1'''
     print("switch num: ", switch_count)
-    print("case num: ", end=' ')
+    print("case num: ", end='')
     for i in case_count:
         print(i, end=' ')
     print()

@@ -14,11 +14,6 @@ def elif_count(word, flag):
     key_stack = []  # 堆栈
     # if_left = []  # if结构里面左括号数量
     left_pos = []  # 所有左括号在堆栈的位置
-    '''
-    if_num = 0     # 所有if 的个数
-    all_str = []  # 所有if， else， else if的集合
-    all_num = 0  # 所有if， else， else if的个数
-    '''
     # if = 1, else = 2, else-if =3, '{' = 4, '}' = 5.
     for line in new_word:
         len_line = len(line)
@@ -48,8 +43,6 @@ def elif_count(word, flag):
                 if_else_num += len(pat_1.findall(str_tmp))
                 elif_num += len(pat_2.findall(str_tmp))
             i += 1
-            # print(key_stack)
-    # print(all_word)
     '''for line in all_word:
         # print(line)
         len_line = len(line)
